@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  api:  # Serviço Django
+    build:
+      context: .
+    container_name: django_api
+    command: gunicorn --bind 0.0.0.0:8000 core.wsgi:application
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/core
+      - ./staticfiles:/core/staticfiles  # Serve arquivos estáticos
+    depends_on:
+      - db
+    environment:
+      DJANGO_SETTINGS_MODULE: core.settings
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+
+  db:  # Serviço PostgreSQL
+    image: postgres:13-alpine
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
