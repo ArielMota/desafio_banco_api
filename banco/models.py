@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Carteira(models.Model):
     """
-    Representa a carteira de um usuário, contendo o saldo associado.
+    Representa a carteira de um usuário, contendo o saldo associado. 
     """
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)  # Relaciona a carteira a um usuário.
     saldo = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)  # Saldo disponível na carteira.
