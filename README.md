@@ -213,12 +213,3 @@ REST_FRAMEWORK = {
 ## Considerações Finais
 
 Este projeto utiliza Docker para orquestrar os containers de desenvolvimento, facilitando a configuração e execução do projeto em diferentes ambientes. Certifique-se de que todos os containers estão funcionando corretamente e que o banco de dados foi configurado com sucesso.
-
-Se tiver dúvidas ou problemas, consulte a documentação do Django e do Docker, ou entre em contato para mais assistência.
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-```
-
-Com essas adições, o `README.md` agora explica como usar os scripts de criação de admin (`create_admin_user`) e de população de banco de dados (`populate_db`), além de atualizar o passo a passo para o usuário entender melhor o funcionamento do projeto e como interagir com ele.
