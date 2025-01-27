@@ -92,7 +92,7 @@ Este projeto utiliza o **pytest** para testar a funcionalidade da API.
 Para rodar os testes, execute o seguinte comando dentro do container `api`:
 
 ```bash
-docker-compose exec api pytest
+docker-compose exec api pytest -v
 ```
 
 Isso executará todos os testes definidos em `tests/` e mostrará os resultados no terminal.
