@@ -1,4 +1,5 @@
-# Projeto Django com API REST para Desafio de código Backend
+# Projeto Django com API REST para Desafio de Backend - Gerenciamento de Carteiras Digitais e Transações Financeiras!
+
 
 Este é um projeto Django que expõe uma API REST para gerenciar usuários, carteiras e transações financeiras. A API é protegida por autenticação JWT (JSON Web Token) para garantir que apenas usuários autenticados possam acessar e modificar os dados.
 
