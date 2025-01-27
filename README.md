@@ -18,7 +18,7 @@ Clone este repositório para sua máquina local:
 
 ```bash
 git clone https://github.com/ArielMota/desafio_banco_api.git
-cd seu-repositorio
+cd desafio_banco_api
 ```
 
 ### Passo 2: Configuração do ambiente
@@ -54,17 +54,34 @@ Após a execução do Docker Compose, execute o seguinte comando para aplicar as
 docker-compose exec api python manage.py migrate
 ```
 
-### Passo 5: Acessando a API
+### Passo 5: Criar um superusuário (opcional)
 
-A API estará disponível na URL `http://localhost:8000`.
-
-### Passo 6: Criar um superusuário (opcional)
-
-Se você quiser criar um superusuário para acessar o Django Admin, execute:
+Se você quiser criar um superusuário para acessar o Django Admin, execute o seguinte comando:
 
 ```bash
 docker-compose exec api python manage.py createsuperuser
 ```
+
+**Script `create_admin_user`:**
+Este comando cria automaticamente um superusuário de admin com nome de usuário `admin`, e-mail `admin@gmail.com` e senha `123456`, caso ainda não exista um usuário admin no banco de dados. Você pode rodá-lo com:
+
+```bash
+docker-compose exec api python manage.py create_admin_user
+```
+
+### Passo 6: População do banco de dados com dados fictícios
+
+O script `populate_db` cria 10 usuários fictícios, cada um com uma carteira associada e 5 transações aleatórias entre os usuários. Para rodá-lo, use o seguinte comando:
+
+```bash
+docker-compose exec api python manage.py populate_db
+```
+
+Este comando cria usuários e simula transações entre eles.
+
+### Passo 7: Acessando a API
+
+A API estará disponível na URL `http://localhost:8000`.
 
 ## Testes
 
@@ -204,4 +221,4 @@ Se tiver dúvidas ou problemas, consulte a documentação do Django e do Docker,
 Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 ```
 
-Com essas adições, o `README.md` agora explica como os recursos de autenticação, permissões e paginação estão configurados no Django REST Framework, garantindo que os usuários compreendam como interagir com a API de forma segura e eficiente.
+Com essas adições, o `README.md` agora explica como usar os scripts de criação de admin (`create_admin_user`) e de população de banco de dados (`populate_db`), além de atualizar o passo a passo para o usuário entender melhor o funcionamento do projeto e como interagir com ele.
